@@ -27,7 +27,7 @@ import User from '@/models/User'
 export default {
   computed: {
     users () {
-      return User.query().with('todos').orderBy('name', 'asc').get()
+      return User.query().with('todos').orderBy('id', 'asc').get()
     }
   },
 
