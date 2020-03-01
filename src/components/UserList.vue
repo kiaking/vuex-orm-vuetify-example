@@ -13,8 +13,6 @@
           <v-list-item-subtitle>{{ user.todos.length }} Tasks</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
-
-      <v-divider class="mx-4" :key="user.id"></v-divider>
     </template>
   </v-card>
 </template>

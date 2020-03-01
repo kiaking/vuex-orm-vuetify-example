@@ -6,15 +6,21 @@
 
     <v-divider class="mx-4"></v-divider>
 
-    <template v-for="todo in todos">
-      <v-list-item :key="todo.id">
-        <v-list-item-content>
-          <v-list-item-title>{{ todo.title }}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+    <v-list>
+      <template v-for="todo in todos">
+        <v-list-item-group :key="todo.id" multiple>
+          <v-list-item>
+            <v-list-item-action>
+              <v-checkbox />
+            </v-list-item-action>
 
-      <v-divider class="mx-4" :key="todo.id"></v-divider>
-    </template>
+            <v-list-item-content>
+              <v-list-item-title>{{ todo.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </template>
+    </v-list>
   </v-card>
 </template>
 
