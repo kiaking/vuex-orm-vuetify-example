@@ -16,6 +16,7 @@
 
             <v-list-item-content>
               <v-list-item-title>{{ todo.title }}</v-list-item-title>
+              <v-list-item-subtitle>Assigned to {{ todo.assignee.name }}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>
@@ -30,7 +31,7 @@ import Todo from '@/models/Todo'
 export default {
   computed: {
     todos () {
-      return Todo.query().orderBy('id', 'desc').get()
+      return Todo.query().with('assignee').orderBy('id', 'desc').get()
     }
   },
 
