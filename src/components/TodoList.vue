@@ -8,10 +8,10 @@
 
     <v-list>
       <template v-for="todo in todos">
-        <v-list-item-group :key="todo.id" multiple>
-          <v-list-item>
+        <v-list-item-group :key="todo.id">
+          <v-list-item @click="toggle(todo)">
             <v-list-item-action>
-              <v-checkbox />
+              <v-checkbox :value="todo.done" />
             </v-list-item-action>
 
             <v-list-item-content>
