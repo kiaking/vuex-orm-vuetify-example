@@ -9,8 +9,12 @@
     <template v-for="user in users">
       <v-list-item :key="user.id">
         <v-list-item-content>
-          <v-list-item-title>{{ user.name }}</v-list-item-title>
-          <v-list-item-subtitle>{{ user.todos.length }} Tasks</v-list-item-subtitle>
+          <v-text-field
+            :value="user.name"
+            placeholder="Unkown user"
+            :messages="[`Assigned to ${user.todos.length} tasks`]"
+            @input="v => { update(user, v) }"
+          />
         </v-list-item-content>
       </v-list-item>
     </template>

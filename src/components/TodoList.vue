@@ -9,14 +9,18 @@
     <v-list>
       <template v-for="todo in todos">
         <v-list-item-group :key="todo.id">
-          <v-list-item @click="toggle(todo)">
+          <v-list-item>
             <v-list-item-action>
-              <v-checkbox :value="todo.done" />
+              <v-checkbox :value="todo.done" @click.stop="toggle(todo)" />
             </v-list-item-action>
 
             <v-list-item-content>
-              <v-list-item-title>{{ todo.title }}</v-list-item-title>
-              <v-list-item-subtitle>Assigned to {{ todo.assignee.name }}</v-list-item-subtitle>
+              <v-text-field
+                :value="todo.title"
+                placeholder="Untitled Task"
+                :messages="[`Assigned to ${todo.assignee.name}`]"
+                @input="v => { update(todo, v) }"
+              />
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>
